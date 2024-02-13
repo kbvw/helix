@@ -73,12 +73,20 @@
 (else_clause
   "else" @outdent)
 
-(parameters
-  .
-  (identifier) @anchor
-  (#set! "scope" "tail")) @align
-(argument_list
-  .
-  (_) @anchor
-  (#set! "scope" "tail")) @align
+[
+  (list . (_) @anchor (#set! "scope" "tail"))
+  (tuple . (_) @anchor (#set! "scope" "tail"))
+  (dictionary . (_) @anchor (#set! "scope" "tail"))
+  (set . (_) @anchor (#set! "scope" "tail"))
 
+  (parenthesized_expression . (_) @anchor (#set! "scope" "tail"))
+  (generator_expression . (_) @anchor (#set! "scope" "tail"))
+  (list_comprehension . (_) @anchor (#set! "scope" "tail"))
+  (set_comprehension . (_) @anchor (#set! "scope" "tail"))
+  (dictionary_comprehension . (_) @anchor (#set! "scope" "tail"))
+
+  (tuple_pattern . (_) @anchor (#set! "scope" "tail"))
+  (list_pattern . (_) @anchor (#set! "scope" "tail"))
+  (argument_list . (_) @anchor (#set! "scope" "tail"))
+  (parameters . (_) @anchor (#set! "scope" "tail"))
+] @align
